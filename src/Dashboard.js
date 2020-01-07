@@ -58,7 +58,11 @@ const useStyles = makeStyles(theme => ({
   appBar: {
     marginLeft: theme.spacing(9),
     marginRight: theme.spacing(9),
-    top: theme.spacing(13),
+    top: theme.spacing(13),  
+    marginBottom: theme.spacing(3),
+    borderBottom: 'darkblue',
+    borderBottomStyle: 'solid',
+    borderBottomWidth: '7px',
     width: `calc(100% - ${theme.spacing(9)*2}px)`,
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
@@ -68,7 +72,7 @@ const useStyles = makeStyles(theme => ({
   },
   appBarTop: {
     paddingTop: 40,
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 2,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -115,7 +119,7 @@ const useStyles = makeStyles(theme => ({
   },
   // Drawer paper for when it is open
   drawerPaper: {
-    top: 100,
+    top: theme.spacing(13.5),
     position: 'absolute',
     whiteSpace: 'nowrap',
     width: drawerWidth,
@@ -124,6 +128,7 @@ const useStyles = makeStyles(theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     elevation: 10,
+    height: 800,
   },
   // Drawer paper for when it is closed
   drawerPaperClose: {
@@ -163,27 +168,19 @@ const useStyles = makeStyles(theme => ({
   },
   // main column size
   paper1: {
-    paddingLeft: 0,
-    paddingRight: 0,
-    // Controls the spacing for the top of the paper and the title of each section
-    padding: theme.spacing(0),
-    display: 'flex',
-    overflow: 'auto',
-    flexDirection: 'column',
-    borderTop: 'darkblue',
-    borderTopStyle: 'solid',
-    borderWidth: '7px',
-    borderRight: 'darkblue'
+    paddingLeft: 40,
+    paddingRight: 40,
   },
   fixedHeight: {
-    height: 750,
+    height: "100%",
   },
   // height for the miscellaneous component and Eng and Dev
   fixedHeight1: {
-    height: 375,
+    height: 400,
+    paddingTop: 50
   },
   containerHeight: {
-    height: 0,
+    height: 140,
   },
 
 }));
@@ -228,7 +225,7 @@ export default function Dashboard() {
   
   return (
     <div className={classes.root}>
-    {/* <AppBar className={classes.appBarTop} style={{ background: 'white' }}>
+    <AppBar className={classes.appBarTop} style={{ background: 'white' }}>
       <Toolbar className={classes.toolbar}>
         <Typography component="h1" variant="h3" color="primary" noWrap className={classes.title} position='fixed'>
           MyID
@@ -273,7 +270,7 @@ export default function Dashboard() {
         </div>
         <Divider />
       </Drawer>
-    </div> */}
+    </div>
     <div className={clsx(containerHeightPaper)}/>
     {/* <Grid
       container 
@@ -300,6 +297,8 @@ export default function Dashboard() {
         </Paper>
       </Grid>
     </Grid> */}
+    <div className={fixedHeightPaper2}>
         <Route />
+        </div>
     </div>
 );}
