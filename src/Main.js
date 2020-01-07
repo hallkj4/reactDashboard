@@ -8,10 +8,11 @@ import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import clsx from 'clsx';
+import { withStyles } from '@material-ui/styles'
 
 
 
-makeStyles(theme => ({
+const styles = theme => ({
     root: {
         flexGrow: 1,
     },
@@ -21,54 +22,86 @@ makeStyles(theme => ({
     },
     // main column size
     paper1: {
-        alignItems: 'center',
+        padding: 25,
+        top: 500,
         display: 'flex',
         flexDirection:'column',
-        padding: 0,
     },
-    // height for the miscellaneous component and Eng and Dev
+    fixedHeight: {
+        height: 800,
+        borderBottom: 'darkblue',
+        borderBottomStyle: 'solid',
+        borderBottomWidth: '1px',
+    },
+
+    // height for the miscellaneous component 
     fixedHeight1: {
-        height: 375,
+        height: 400,
+        borderTop: 'darkblue',
+        borderTopStyle: 'solid',
+        borderTopWidth: '7px',
+        borderBottom: 'darkblue',
+        borderBottomStyle: 'solid',
+        borderBottomWidth: '1px',
+        borderRight: 'darkblue',
+        borderRightStyle: 'solid',
+        borderRightWidth: '1px',
+    },
+    // and Eng and Dev
+    fixedHeight2: {
+        height: 400,
+        borderRight: 'darkblue',
+        borderRightStyle: 'solid',
+        borderRightWidth: '1px',
+    },    
+    // height for the Admin services
+    fixedHeight3: {
+        height: 800,
+        borderLeft: 'darkblue',
+        borderLeftStyle: 'solid',
+        borderLeftWidth: '1px',
+        borderBottom: 'darkblue',
+        borderBottomStyle: 'solid',
+        borderBottomWidth: '1px',
     },
     containerHeight: {
         height: 100,
     },
     
-}));
-let classes = makeStyles();
-const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-const fixedHeightPaper1 = clsx(classes.paper1, classes.fixedHeight1);
-const fixedHeightPaper2 = clsx(classes.paper1);
-const containerHeightPaper = clsx(classes.paper, classes.containerHeight);
+});
 
 
 class Main extends Component{
     render(){
+        const {classes} = this.props;
+        const fixedHeightPaper = clsx(classes.paper1, classes.fixedHeight2);
+        const fixedHeightPaper1 = clsx(classes.paper1, classes.fixedHeight1);
+        const fixedHeightPaper2 = clsx(classes.paper1, classes.fixedHeight);
+        const fixedHeightPaper3 = clsx(classes.paper1, classes.fixedHeight3);
+        const containerHeightPaper = clsx(classes.paper, classes.containerHeight);
         return(
-            <Grid container
-                alignItems="stretch"
-            >
-                <Grid item xs={4} alignItems="stretch">
-                    <Paper className={}>
+            <Grid container >
+                <Grid item xs={4}>
+                    <Paper className={fixedHeightPaper3} >
                         <AdminServices />
                     </Paper>
                 </Grid>
                 <Grid item xs={4}>
-                    <Paper>  
+                    <Paper className={fixedHeightPaper2}>  
                         <UserServices />
                     </Paper>
                 </Grid>
-                {/* <Grid item xs={4}>
-                    <Paper>
+                <Grid item xs={4}>
+                    <Paper className={fixedHeightPaper}>
                         <EngAndDev />
                     </Paper>
-                    <Paper>
+                    <Paper className={fixedHeightPaper1}>
                         <Miscellenous />
                     </Paper>
-                </Grid> */}
+                </Grid>
             </Grid>
         );
     }
 }
 
-export default Main;
+export default withStyles(styles)(Main);
