@@ -28,6 +28,7 @@ import Miscellenous from './miscellaneous';
 import { blue } from '@material-ui/core/colors';
 import { Icon } from '@material-ui/core';
 import Route from './Route';
+import { MuiThemeProvider } from 'material-ui/styles';
 
 const drawerWidth = 300;
 
@@ -38,8 +39,6 @@ const useStyles = makeStyles(theme => ({
   toolbar: {
     alignItems: 'flex-start',
     color: 'blue',
-    paddingRight: 10, // keep right padding when drawer closed
-    paddingLeft: 20,
   },
   toolbarIconLeft: {
     display: 'flex',
@@ -48,62 +47,15 @@ const useStyles = makeStyles(theme => ({
     padding: '0 8px',
     ...theme.mixins.toolbar,
   },
-  toolbarIconRight: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
-  },
-  appBar: {
-    marginLeft: theme.spacing(9),
-    marginRight: theme.spacing(9),
-    top: theme.spacing(13),  
-    marginBottom: theme.spacing(3),
+  appBarTop: {
     borderBottom: 'darkblue',
     borderBottomStyle: 'solid',
-    borderBottomWidth: '7px',
-    width: `calc(100% - ${theme.spacing(9)*2}px)`,
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarTop: {
-    paddingTop: 40,
+    borderBottomWidth: '30px',
+    paddingTop: 15,
     zIndex: theme.zIndex.drawer + 2,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  // Left App Bar shifting when open/closing drawer
-  appBarShiftLeft: {
-    marginLeft: drawerWidth + theme.spacing(9),
-    width: `calc(100% - ${drawerWidth + theme.spacing(9)}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  // Right App Bar shifting when open/closing drawer
-  appBarShiftRight: {
-    marginRight: drawerWidth,
-    width: `calc(100% - ${drawerWidth + theme.spacing(9)}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  // Left and Right App Bar shifting when open/closing drawer
-  appBarShiftBoth: {
-    marginLeft: drawerWidth,
-    marginRight: drawerWidth,
-    width: `calc(100% - ${drawerWidth*2}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
     }),
   },
   menuButton: {
@@ -186,11 +138,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Dashboard() {
-  const [iconRight, setIconRight] = React.useState(true);
   const [iconLeft, setIconLeft] = React.useState(true);
   const classes = useStyles();
   const [openLeft, setOpenLeft] = React.useState(true);
-  const [openRight, setOpenRight] = React.useState(true);
   const handleLeftDrawer = () => {
     if(openLeft){
       setOpenLeft(false);
@@ -204,19 +154,7 @@ export default function Dashboard() {
       setIconLeft(true);
     }
   };
-  const handleRightDrawer = () => {
-    if(openRight){
-      setOpenRight(false);
-    }
-    else{
-      setOpenRight(true);
-    }
-    if(iconRight){
-      setIconRight(false);
-    } else {
-      setIconRight(true);
-    }
-  };
+  
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const fixedHeightPaper1 = clsx(classes.paper1, classes.fixedHeight1);
   const fixedHeightPaper2 = clsx(classes.paper1, classes.fixedHeight)
@@ -228,15 +166,22 @@ export default function Dashboard() {
     <AppBar className={classes.appBarTop} style={{ background: 'white' }}>
       <Toolbar className={classes.toolbar}>
         <Typography component="h1" variant="h3" color="primary" noWrap className={classes.title} position='fixed'>
-          MyID
+          <img src={process.env.PUBLIC_URL + '/ge_primary_blue_logo.svg'} alt="GE ICON" />
+            MyID
+          {/* <MuiThemeProvider>
+            <SearchBar
+              onRequestSearch={() => console.log('onRequestSearch')}
+              style={{
+                fontWeight:"fontWeightRegular", m:0, paddingBottom:0, paddingTop:0,
+                margin: '0 auto',
+                maxWidth: 800
+              }}
+            />
+          </MuiThemeProvider> */}
         </Typography>
         <IconButton >
           <AccountCircle fontSize='large' color='primary'/>
         </IconButton>
-      </Toolbar>
-    </AppBar>
-    <AppBar position="absolute" className={clsx(classes.appBar, !openLeft && classes.appBarShiftLeft, !openRight && classes.appBarShiftRight, !openRight && !openLeft && classes.appBarShiftBoth)} style={{ background: 'lightgrey' }}>
-      <Toolbar className={classes.toolbar}>
       </Toolbar>
     </AppBar>
     <Drawer 
@@ -254,51 +199,9 @@ export default function Dashboard() {
       <Divider />
         <List>{secondaryListItems}</List>
     </Drawer>
-    <div>
-      <Drawer 
-        anchor='right'
-        variant="permanent"
-        classes={{
-          paper: clsx(classes.drawerPaper, openRight && classes.drawerPaperClose),
-        }}
-        openRight={openRight}
-      >
-        <div className={classes.toolbarIconRight}>
-          <IconButton onClick={handleRightDrawer}>
-            { iconRight ? <HelpIcon fontSize="large"/> : <ChevronRightIcon fontSize="large"/> }          
-          </IconButton>
-        </div>
-        <Divider />
-      </Drawer>
-    </div>
     <div className={clsx(containerHeightPaper)}/>
-    {/* <Grid
-      container 
-      justify="flex-start"
-      alignItems="flex-start"
-      alignContent="flex-start"
-    >
-      <Grid item xs={25} md={10} lg={4} >
-        <Paper className={fixedHeightPaper2}>
-          <AdminServices />
-        </Paper>
-      </Grid>
-      <Grid item xs={12} md={10} lg={4}>
-        <Paper className={fixedHeightPaper2}>
-          <UserServices />
-        </Paper>
-      </Grid>
-      <Grid item xs={12} md={10} lg={4}>
-        <Paper className={fixedHeightPaper1}>
-          <EngAndDev />
-        </Paper>
-        <Paper className={fixedHeightPaper1}>
-          <Miscellenous />
-        </Paper>
-      </Grid>
-    </Grid> */}
-    <div className={fixedHeightPaper2}>
+      <div className={fixedHeightPaper2}>
         <Route />
-        </div>
+      </div>
     </div>
 );}

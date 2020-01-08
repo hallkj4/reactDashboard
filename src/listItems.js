@@ -22,7 +22,7 @@ export const ListItemOverride = ({ item, url }) => (
   <ListItem button >
     <ListItemText >
       <Typography >
-        <Box fontSize={18}>
+        <Box fontSize={14}>
           <a href={url}>{item}</a>
           </Box>
       </Typography>
@@ -46,12 +46,12 @@ export const AdminServicesList = (
     </Grid> 
     <ListItem>
       <Grid container direction="column">
-        <ListItemOverride item={"Overview"} url={"https://localhost:8080"}></ListItemOverride>
+        <ListItemOverride item={"OVERVIEW"} url={"https://localhost:8080"}></ListItemOverride>
         <ListItemOverride item={"SSO / MFA"}></ListItemOverride>
-        <ListItemOverride item={"Priveleged Accounts"}></ListItemOverride>
-        <ListItemOverride item={"Certificates"}></ListItemOverride>
-        <ListItemOverride item={"IDM - Access Management"}></ListItemOverride>
-        <ListItemOverride item={"Create / Update"}></ListItemOverride>
+        <ListItemOverride item={"PRIVELEGED ACCOUNT"}></ListItemOverride>
+        <ListItemOverride item={"CERTIFICATES"}></ListItemOverride>
+        <ListItemOverride item={"IDM - ACCESS MANAGEMENT"}></ListItemOverride>
+        <ListItemOverride item={"CREATE / UPDATE"}></ListItemOverride>
         </Grid>
       </ListItem>
   </div>
@@ -71,9 +71,9 @@ export const BillingAndUsage = (
     </Grid>
     <ListItem>
       <Grid container direction="column">
-        <ListItemOverride item={"Overview"} url={"https://localhost:8080"}>Test</ListItemOverride>
-        <ListItemOverride item={"Asset Relationship"}></ListItemOverride>
-        <ListItemOverride item={"Usage Data"}></ListItemOverride>
+        <ListItemOverride item={"OVERVIEW"} url={"https://localhost:8080"}>Test</ListItemOverride>
+        <ListItemOverride item={"ASSET RELATIONSHIP"}></ListItemOverride>
+        <ListItemOverride item={"USAGE DATA"}></ListItemOverride>
       </Grid>
     </ListItem>
   </div>
@@ -95,10 +95,10 @@ export const AccessManagement = (
     </Grid>
     <ListItem>
       <Grid container direction="column">
-        <ListItemOverride item={"Overview"} url={"https://localhost:8080"}></ListItemOverride>
-        <ListItemOverride item={"Application Access"}></ListItemOverride>
-        <ListItemOverride item={"Remote / Priveleged Access"}></ListItemOverride>
-        <ListItemOverride item={"Email / Collaboration"}></ListItemOverride>
+        <ListItemOverride item={"OVERVIEW"} url={"https://localhost:8080"}></ListItemOverride>
+        <ListItemOverride item={"APPLICATION ACCESS"}></ListItemOverride>
+        <ListItemOverride item={"REMOTE / PRIVELEGED ACCES"}></ListItemOverride>
+        <ListItemOverride item={"EMAIL / COLLABORATION"}></ListItemOverride>
       </Grid>
     </ListItem>
   </div>
@@ -120,8 +120,8 @@ export const PasswordManagement = (
     </Grid>
     <ListItem>
       <Grid container direction="column">
-        <ListItemOverride item={"Overview"} url={"https://localhost:8080"}>Test</ListItemOverride>
-        <ListItemOverride item={"Password Reset"}></ListItemOverride>
+        <ListItemOverride item={"OVERVIEW"} url={"https://localhost:8080"}>Test</ListItemOverride>
+        <ListItemOverride item={"PASSWORD RESET"}></ListItemOverride>
       </Grid>
     </ListItem>
   </div>
@@ -143,9 +143,9 @@ export const Certificates = (
     </Grid>
     <ListItem>
       <Grid container direction="column">
-        <ListItemOverride item={"Overview"} url={"https://localhost:8080"}>Test</ListItemOverride>
-        <ListItemOverride item={"Email Signature"}></ListItemOverride>
-        <ListItemOverride item={"Email Encryption"}></ListItemOverride>
+        <ListItemOverride item={"OVERVIEW"} url={"https://localhost:8080"}>Test</ListItemOverride>
+        <ListItemOverride item={"EMAIL SIGNATURE"}></ListItemOverride>
+        <ListItemOverride item={"EMAIL ENCRYPTION"}></ListItemOverride>
       </Grid>
     </ListItem>
   </div>
@@ -167,9 +167,9 @@ export const IAMResources = (
     </Grid>
     <ListItem>
       <Grid container direction="column">
-        <ListItemOverride item={"API Access / Documentation"} url={"https://localhost:8080"}>Test</ListItemOverride>
-        <ListItemOverride item={"Integration"}></ListItemOverride>
-        <ListItemOverride item={"Environment MGMT"}></ListItemOverride>
+        <ListItemOverride item={"API ACCESS / DOCUMENTATION"} url={"https://localhost:8080"}>Test</ListItemOverride>
+        <ListItemOverride item={"INTEGRATION"}></ListItemOverride>
+        <ListItemOverride item={"ENVIRONMENT MGMT"}></ListItemOverride>
       </Grid>
     </ListItem>
   </div>
@@ -179,9 +179,9 @@ export const miscellaneous = (
   <div>
     <ListItem>
       <Grid container direction="column">
-        <ListItemOverride item={"Cloud Services"} url={"https://localhost:8080"}>Test</ListItemOverride>
-        <ListItemOverride item={"Business Intelligence"}></ListItemOverride>
-        <ListItemOverride item={"Continuous Monitoring"}></ListItemOverride>
+        <ListItemOverride item={"CLOUD SERVICES"} url={"https://localhost:8080"}>Test</ListItemOverride>
+        <ListItemOverride item={"BUSINESS INTELLIGENCE"}></ListItemOverride>
+        <ListItemOverride item={"CONTINUOUS MONITORING"}></ListItemOverride>
       </Grid>
     </ListItem>
   </div>
