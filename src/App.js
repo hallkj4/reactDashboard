@@ -6,28 +6,15 @@ import Link from '@material-ui/core/Link';
 import ProTip from './ProTip';
 import Dashboard from './Dashboard';
 import Route from './Route';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import Footer from './Footer';
 
 export default function App() {
   return (
-    <Container maxWidth="xl">
-      <Box my={4}>
+    <Container maxWidth={false}>
+      <Box my={4.5}>
         <Dashboard />
-        <ProTip />
-        <Copyright />
       </Box>
+      <Footer />
     </Container>
   );
 }

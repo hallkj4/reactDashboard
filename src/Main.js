@@ -34,10 +34,7 @@ const styles = theme => ({
 
     // height for the miscellaneous component 
     fixedHeight1: {
-        height: 400,
-        borderTop: 'darkblue',
-        borderTopStyle: 'solid',
-        borderTopWidth: '7px',
+        height: 800,
         borderBottom: 'darkblue',
         borderBottomStyle: 'solid',
         borderBottomWidth: '1px',
@@ -106,20 +103,20 @@ const styles = theme => ({
         marginRight: theme.spacing(9),
         top: theme.spacing(13),  
         marginBottom: theme.spacing(3),
-        borderBottom: 'darkblue',
+        borderBottom: '#005aca',
         borderBottomStyle: 'solid',
-        borderBottomWidth: '7px',
+        borderBottomWidth: '5px',
         width: `calc(100% - ${theme.spacing(9)*2}px)`,
         zIndex: theme.zIndex.drawer -1,
         transition: theme.transitions.create(['width', 'margin'], {
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen,
         }),
-        color: "primary",
+        color: '#007bd2',
     },
     toolbar: {
         alignItems: 'flex-start',
-        color: 'blue',
+        color: "#007bd2",
     },
     toolbarIconRight: {
         display: 'flex',
@@ -182,10 +179,10 @@ class Main extends Component{
         const fixedHeightPaper2 = clsx(classes.paper1, classes.fixedHeight);
         const fixedHeightPaper3 = clsx(classes.paper1, classes.fixedHeight3);
         return(
-            <div>
+            <div style={{width:'100%'}}>
             <Grid container className = {clsx(classes.content, {
                 [classes.contentShift]: this.state.openRight,
-            })}>
+            })} flexDirection='row'>
                 <Grid item xs={4}>
                     <Paper className={fixedHeightPaper3} >
                         <AdminServices />
@@ -197,15 +194,15 @@ class Main extends Component{
                     </Paper>
                 </Grid>
                 <Grid item xs={4}>
-                    <Paper className={fixedHeightPaper}>
+                    <Paper className={fixedHeightPaper1}>
                         <EngAndDev />
                     </Paper>
-                    <Paper className={fixedHeightPaper1}>
+                    {/* <Paper className={fixedHeightPaper1}>
                         <Miscellenous />
-                    </Paper>
+                    </Paper> */}
                 </Grid>
             </Grid>
-            <AppBar position="absolute" className={clsx(classes.appBar)} style={{ background: 'lightblue' }}>
+            <AppBar position="absolute" className={clsx(classes.appBar)} style={{ background: '#e5f4fe' }}>
                 <Toolbar className={classes.toolbar}>
                 </Toolbar>
             </AppBar>
