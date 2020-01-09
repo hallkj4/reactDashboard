@@ -85,10 +85,10 @@ export const BillingAndUsage = (
 export const AccessManagement = (
   <div >
     <Grid container direction="row" alignItems="center" alignContent="center" justify="flex-start">
-      <Grid item justify="flex-start">
+      <Grid item >
         <FolderSharedIcon fontSize="large"/>
       </Grid>
-      <Grid item justify="flex-start">
+      <Grid item>
         <Typography component="div">
           <Box fontWeight="fontWeightBold" fontSize="h6.fontSize" m={1}>
             Access Management

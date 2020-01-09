@@ -1,16 +1,16 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Link from '@material-ui/core/Link';
-import ProTip from './ProTip';
-import Dashboard from './Dashboard';
-import Route from './Route';
-import Footer from './Footer';
+import Dashboard from './views/Dashboard';
+import Footer from './staticComponents/Footer';
+import NavDrawer from './staticComponents/NavDrawer';
+import TopAppBar from './staticComponents/TopAppBar';
 
 export default function App() {
   return (
     <Container maxWidth={false}>
+      <NavDrawer />
+      <TopAppBar />
       <Box my={4.5}>
         <Dashboard />
       </Box>
