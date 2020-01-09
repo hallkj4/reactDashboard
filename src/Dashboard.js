@@ -48,15 +48,16 @@ const useStyles = makeStyles(theme => ({
     ...theme.mixins.toolbar,
   },
   appBarTop: {
-    borderBottom: 'darkblue',
-    borderBottomStyle: 'solid',
-    borderBottomWidth: '30px',
     paddingTop: 15,
-    zIndex: theme.zIndex.drawer + 2,
+    zIndex: theme.zIndex.drawer + 3,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+  },
+  appBarBottom: {
+    zIndex: theme.zIndex.drawer + 2,
+    paddingTop: 45,
   },
   menuButton: {
     marginRight: 75,
@@ -167,7 +168,7 @@ export default function Dashboard() {
       <Toolbar className={classes.toolbar}>
         <Typography component="h1" variant="h3" color="primary" noWrap className={classes.title} position='fixed'>
           <img src={process.env.PUBLIC_URL + '/ge_primary_blue_logo.svg'} alt="GE ICON" />
-            MyID
+            {" "}MyID
           {/* <MuiThemeProvider>
             <SearchBar
               onRequestSearch={() => console.log('onRequestSearch')}
@@ -182,6 +183,10 @@ export default function Dashboard() {
         <IconButton >
           <AccountCircle fontSize='large' color='primary'/>
         </IconButton>
+      </Toolbar>
+    </AppBar>
+    <AppBar className={classes.appBarBottom} style={{ background: 'linear-gradient(#3970a0, #00396e)' }}>
+      <Toolbar className={classes.toolbar}>
       </Toolbar>
     </AppBar>
     <Drawer 

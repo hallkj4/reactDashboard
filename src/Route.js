@@ -11,7 +11,7 @@ const Dash = () => {
                 <h1>Home</h1>
                 <nav>
                     <Link to="/">Home</Link> |{" "}
-                    <Link to="dashboard">Dashboard</Link>
+                    <Link to="overview">Dashboard</Link>
                 </nav>
             </Typography>
         </div>
@@ -29,8 +29,9 @@ class Route extends Component {
     render() {
         return (
             <Router>
-                <Main path="/" />
-                <Dash path="dashboard" />
+                <Main path="/"/>
+                <Dash path="overview" />
+              
             </Router>
         );
     }
